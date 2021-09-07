@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <script>
+    // console.log = function () { };
+
+    if (window.location.protocol == 'http:') {
+
+      console.log("you are accessing us via "
+        + "an insecure protocol (HTTP). "
+        + "Redirecting you to HTTPS.");
+
+      // window.location.href =
+      //     window.location.href.replace(
+      //                'http:', 'https:');
+    }
+  </script>
+  <meta http-equiv="Content-Security-Policy"
+    content="X-XSS-Protection: 1; mode=block;X-Frame-Options: DENY;frame-ancestors 'none';X-Content-Type-Options: nosniff" />
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+  <link href="%PUBLIC_URL%/assets/fonts/fonts.css" rel="stylesheet" type="text/css" />
+  <link href="%PUBLIC_URL%/assets/fonts/icons.css" rel="stylesheet" type="text/css" />
+  <link href="%PUBLIC_URL%/assets/fonts/glyphicons-halflings-regular.woff2" rel="stylesheet" type="text/css" />
+  <link href="%PUBLIC_URL%/assets/fonts/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2" rel="stylesheet" type="text/css" />
+
+  <link href="%PUBLIC_URL%/assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+  <!-- select Box -->
+  <link href="%PUBLIC_URL%/assets/css/bootstrap-select.css" rel="stylesheet" type="text/css" />
+
+  <link href="%PUBLIC_URL%/assets/css/animate.css" rel="stylesheet" type="text/css" />
+  <link href="%PUBLIC_URL%/assets/css/materialize.css" rel="stylesheet" type="text/css" />
+  <link href="%PUBLIC_URL%/assets/css/style.css" rel="stylesheet" type="text/css" />
+  <link href="%PUBLIC_URL%/assets/css/all-themes.css" rel="stylesheet" type="text/css" />
+  <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+  <title>CRIMINAL SEARCH SYSTEM</title>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root">
+
+  </div>
+  <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+</body>
+<script src="%PUBLIC_URL%/assets/js/jquery.min.js"></script>
+<script src="%PUBLIC_URL%/assets/js/bootstrap.js"></script>
+<script src="%PUBLIC_URL%/assets/js/bootstrap-select.js"></script>
+
+<script src="%PUBLIC_URL%/assets/js/waves.js"></script>
+<script src="%PUBLIC_URL%/assets/js/admin.js"></script>
+
+</html>

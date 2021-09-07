@@ -1,0 +1,398 @@
+{
+    "personal": [
+        {
+            "name": "Name",
+            "key": "",
+            "bold": "yes"
+        },
+        {
+            "name": "First Name",
+            "key": "Personal_Details_Name_First"
+        },
+        {
+            "name": "Middle Name",
+            "key": "Personal_Details_Name_Middle"
+        },
+        {
+            "name": "Last Name",
+            "key": "Personal_Details_Name_Last"
+        },
+        {
+            "name": "",
+            "key": ""
+        },
+        {
+            "name": "Alias",
+            "key": "Personal_Details_Alias"
+        },
+        {
+            "name": "Reason for the alias",
+            "key": "Personal_Details_Alias_Reason"
+        },
+        {
+            "name": "Father/Husband/Guardian Name",
+            "key": "Personal_Details_Father_Husband_Guardian_Name"
+        },
+        {
+            "name": "Date of Birth &amp; age",
+            "key": "Personal_Details_DOB_Or_Age"
+        },
+        {
+            "name": "Gender",
+            "key": "Personal_Details_Gender"
+        },
+        {
+            "name": "Native Police Station",
+            "key": "Personal_Details_Native_Police_Station"
+        },
+        {
+            "name": "Present Address ",
+            "key": "",
+            "bold": "yes"
+        },
+        {
+            "name": "Street",
+            "key": "Personal_Details_Present_Address_Street"
+        },
+        {
+            "name": "Village / Ward",
+            "key": "Personal_Details_Present_Address_Village_Ward"
+        },
+        {
+            "name": "Dist/City",
+            "key": "Personal_Details_Present_Address_Dist_City"
+        },
+        {
+            "name": "State/Country",
+            "key": "Personal_Details_Present_Address_State_Country"
+        },
+        {
+            "name": "Permanent Address (or) Alternate Address (Own / Rented)",
+            "key": "",
+            "bold": "yes"
+        },
+        {
+            "name": "Street",
+            "key": "Personal_Details_Permanent_Address_Street"
+        },
+        {
+            "name": "Village / Ward",
+            "key": "Personal_Details_Permanent_Address_Village_Ward"
+        },
+        {
+            "name": "Dist/City",
+            "key": "Personal_Details_Permanent_Address_Dist_City"
+        },
+        {
+            "name": "State/Country",
+            "key": "Personal_Details_Permanent_Address_State_Country"
+        },
+        {
+            "name": "",
+            "key": ""
+        },
+        {
+            "name": "Caste / Community ",
+            "key": "Personal_Details_Caste_Community"
+        },
+        {
+            "name": "Religion",
+            "key": "Personal_Details_"
+        },
+        {
+            "name": "Nationality",
+            "key": "Personal_Details_Religion"
+        },
+        {
+            "name": "Marital Status",
+            "key": "Personal_Details_Marital_Status"
+        },
+        {
+            "name": "Family Details with address and phone numbers ",
+            "key": "",
+            "bold": "yes"
+        },
+        {
+            "name": "Wife",
+            "key": "Personal_Details_Wife"
+        },
+        {
+            "name": "Mother",
+            "key": "Personal_Details_Mother"
+        },
+        {
+            "name": "Son",
+            "key": "Personal_Details_Son"
+        },
+        {
+            "name": "Daughter",
+            "key": "Personal_Details_Daughter"
+        },
+        {
+            "name": "",
+            "key": ""
+        },
+        {
+            "name": "Concubine details",
+            "key": "Personal_Details_Concubine_details"
+        },
+        {
+            "name": "Educational Qualification",
+            "key": "Personal_Details_Educational_Qualification"
+        },
+        {
+            "name": "Profession / Occupation",
+            "key": "Personal_Details_Profession_Occupation"
+        },
+        {
+            "name": "Expertise ",
+            "key": "Personal_Details_Expertise"
+        }
+    ],
+    "Physical": [
+        {
+            "name": "Height (CM/Feet)",
+            "key": "Physical_Features_Height"
+        },
+        {
+            "name": "Built (Thin/Stout/Erect/stooping)",
+            "key": "Physical_Features_Built"
+        },
+        {
+            "name": "Complexion (Fair/Brown/Black/Sallow) ",
+            "key": "Physical_Features_Complexion"
+        },
+        {
+            "name": "Facial Feature (Long / round/smiling / Scowling/wrinkled)",
+            "key": "Physical_Features_Facial_Feature"
+        },
+        {
+            "name": "Hair (Colour /bald/cutting style)",
+            "key": "Physical_Features_Hair"
+        },
+        {
+            "name": "Upper body ",
+            "key": "Physical_Features_Upper_body"
+        },
+        {
+            "name": "Lower body",
+            "key": "Physical_Features_Lower_body"
+        },
+        {
+            "name": "Identification marks",
+            "key": "Physical_Features_Identification_marks"
+        },
+        {
+            "name": "Physical Peculiarities ",
+            "key": "Physical_Features_Peculiarities"
+        },
+        {
+            "name": "Habits",
+            "key": "Physical_Features_Habits"
+        },
+        {
+            "name": "Dress Habits ",
+            "key": "Physical_Features_Dress_Habits"
+        }
+    ],
+    "Possession": [
+        {
+            "name": "Mobile No. / Phone No.",
+            "key": "Possession_Mobile_Phone_No"
+        },
+        {
+            "name": "Email ID",
+            "key": "Possession_Email_ID"
+        },
+        {
+            "name": "Other IDs ",
+            "key": "Possession_Other_IDs"
+        },
+        {
+            "name": "Ration card ",
+            "key": "Possession_Ration_card"
+        },
+        {
+            "name": "Voter’s ID",
+            "key": "Possession_Voters_ID"
+        },
+        {
+            "name": "Driving license No ",
+            "key": "Possession_Driving_license_No"
+        },
+        {
+            "name": "Place of Issue ",
+            "key": "Possession_Place_of_Issue"
+        },
+        {
+            "name": "Vehicle used by the accused  ",
+            "key": "Possession_Vehicle"
+        },
+        {
+            "name": "PAN No.",
+            "key": "Possession_PAN_No"
+        },
+        {
+            "name": "Passport No. ",
+            "key": "Possession_Passport_No"
+        },
+        {
+            "name": "Bank Account No. ",
+            "key": "Possession_Bank_Account_No"
+        },
+        {
+            "name": "ATM Debit Card No. ",
+            "key": "Possession_ATM_Debit_Card_No"
+        },
+        {
+            "name": "ATM Credit Card No. ",
+            "key": "Possession_ATM_Credit_Card_No"
+        },
+        {
+            "name": "Insurance Policy details",
+            "key": "Possession_Insurance_Policy_details"
+        }
+    ],
+    "Fire": [
+        {
+            "name": "Details of fire arms",
+            "key": "Fire_Arms_Details"
+        },
+        {
+            "name": "If stolen details ",
+            "key": "Fire_Arms_if_stolen_details"
+        },
+        {
+            "name": "Movable Assets ",
+            "key": "Fire_Arms_Movable_Assets"
+        },
+        {
+            "name": "Immovable Assets ",
+            "key": "Fire_Arms_Immovable_Assets"
+        }
+    ],
+    "Organization": [
+        {
+            "name": "Gang Name / Leader  ",
+            "key": "Organization_Details_GangName_Leader"
+        },
+        {
+            "name": "No. of Associates",
+            "key": "Organization_Details_"
+        },
+        {
+            "name": "Name of the Associates with address ",
+            "key": "Organization_Details_Associates_Names_And_Addess"
+        },
+        {
+            "name": "Contact No. ",
+            "key": "Organization_Details_Contact_No"
+        },
+        {
+            "name": "Gang rivalry ",
+            "key": "Organization_Details_Gang_rivalry"
+        },
+        {
+            "name": "Hide outs ",
+            "key": "Organization_Details_Hide_outs"
+        },
+        {
+            "name": "Area of operation ",
+            "key": "Organization_Details_Area_of_operation"
+        },
+        {
+            "name": "Type of Activities  ",
+            "key": "Organization_Details_Types_of_activities"
+        },
+        {
+            "name": "Organization ",
+            "key": "Organization_Details_Organization"
+        },
+        {
+            "name": "Organization Address",
+            "key": "Organization_Details_Organization_Address"
+        }
+    ],
+    "Others": [
+        {
+            "name": "Political affiliation",
+            "key": "others_Political_affiliation"
+        },
+        {
+            "name": "Last date of arrest ",
+            "key": "others_Last_date_of_arrest"
+        },
+        {
+            "name": "Cr. No. and section",
+            "key": "others_Cr_No_and_section"
+        },
+        {
+            "name": "Details of previous cases",
+            "key": "others_previous_cases"
+        },
+        {
+            "name": "History Sheet No. and date of opening of H.S ",
+            "key": "others_History_Sheet_No_and_date"
+        },
+        {
+            "name": "Police Station Jurisdiction ",
+            "key": "others_Police_Station_Jurisdiction"
+        },
+        {
+            "name": "Name of advocate ",
+            "key": "others_Name_of_advocate"
+        },
+        {
+            "name": "Address & Phone of Advocate ",
+            "key": "others_Advocate_Address_And_Phone"
+        },
+        {
+            "name": "Identifying officer ",
+            "key": "others_Identifying_officer"
+        },
+        {
+            "name": "Rank and present unit",
+            "key": "others_Rank_and_present_unit"
+        },
+        {
+            "name": "Finger prints attached",
+            "key": "others_Finger_prints_attached"
+        },
+        {
+            "name": "Photographs ",
+            "key": "others_Photographs"
+        },
+        {
+            "name": "Video/Media attached   ",
+            "key": "others_Video_Media_attached"
+        },
+        {
+            "name": "Present Status",
+            "key": "others_Present_Status"
+        },
+        {
+            "name": "Last Checked by Whom  ",
+            "key": "others_Last_Checked_by_Whom"
+        },
+        {
+            "name": "Future Course of action  ",
+            "key": "others_Future_Course_of_action"
+        },
+        {
+            "name": "Present Monitoring Officer",
+            "key": "others_Present_monitoring_Officer"
+        },
+        {
+            "name": "Profile forwarded by  ",
+            "key": "others_Profile_forwarded_by"
+        },
+        {
+            "name": "Reason for creation of profile  ",
+            "key": "others_profile_creation_Reason"
+        },
+        {
+            "name": "Remarks ",
+            "key": ""
+        }
+    ]
+}

@@ -1,0 +1,131 @@
+{
+    "city": [
+        {
+            "cityname": "Chennai",
+            "Zone": [
+                {
+                    "zonename": "East",
+                    "Range": [
+                        {
+                            "rangename": "KILPAUK",
+                            "District": [
+                                {
+                                    "rangename": "KILPAUK",
+                                    "Station": [
+                                        {
+                                            "stationname": "T.P Chatran",
+                                            "STATION_ID": "K6",
+                                            "Criminal": [
+                                                {
+                                                    "Criminaldetails": "all details here"
+                                                },
+                                                {
+                                                    "Criminaldetails": "all details here"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "stationname": "T.P Chatran",
+                                            "STATION_ID": "K6",
+                                            "Criminal": [
+                                                {
+                                                    "Criminaldetails": "all details here"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "rangename": "KILPAUK",
+                                    "Station": [
+                                        {
+                                            "stationname": "T.P Chatran",
+                                            "STATION_ID": "K6",
+                                            "Criminal": [
+                                                {
+                                                    "Criminaldetails": "all details here"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "rangename": "KILPAUK",
+                            "District": [
+                                {
+                                    "rangename": "KILPAUK",
+                                    "Station": [
+                                        {
+                                            "stationname": "T.P Chatran",
+                                            "STATION_ID": "K6",
+                                            "Criminal": [
+                                                {
+                                                    "Criminaldetails": "all details here"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "zonename": "East",
+                    "Range": [
+                        {
+                            "rangename": "KILPAUK",
+                            "District": [
+                                {
+                                    "rangename": "KILPAUK",
+                                    "Station": [
+                                        {
+                                            "stationname": "T.P Chatran",
+                                            "STATION_ID": "K6",
+                                            "Criminal": [
+                                                {
+                                                    "Criminaldetails": "all details here"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "cityname": "Cuddalore",
+            "Zone": [
+                {
+                    "zonename": "East",
+                    "Range": [
+                        {
+                            "rangename": "kjpd",
+                            "District": [
+                                {
+                                    "rangename": "kjpd",
+                                    "Station": [
+                                        {
+                                            "stationname": "T.P Chatran",
+                                            "STATION_ID": "K6",
+                                            "Criminal": [
+                                                {
+                                                    "Criminaldetails": "all details here"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
