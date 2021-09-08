@@ -43,7 +43,7 @@ function content(userDetails, originalText) {
                         <p>Please wait...</p>
                     </div>
                 </div>
-                <div className="overlay"></div>
+
 
                 <nav className="navbar">
                     <div className="container-fluid">
@@ -92,11 +92,14 @@ function content(userDetails, originalText) {
                                 </div>
                             </div>
                         </div>
-                        <Right originalText={originalText} />
+                        <div class="menu">
+                            <Right originalText={originalText} />
+                        </div>
                     </aside>
                 </section>
 
             </div>
+            <LoadScript />
         </React.Fragment>
     );
 }

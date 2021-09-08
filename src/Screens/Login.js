@@ -109,21 +109,26 @@ export default class Login extends Component {
                         borderWidth: "10px"
                     }}
                 >
-                    <div style={{ marginLeft: "5%", marginRight: "5%" }}>
-                        <div className="ecenter">
-                            <img
-                                src='...'
-                                className="img-responsive logmres"
-                                //style={{ margin: "5%", marginLeft: "45%" }}
-                                alt=" Logo"
-                            />
+                    <div style={{}}>
+                        <div style={{ marginLeft: '10%' }}>
+
+                            <div className="center">
+                                <img
+                                    src='/logo.png'
+                                    className="img-responsive logmres"
+                                    style={{ width: "25%", height: 'auto' }}
+                                    alt=" Logo"
+                                />
+                            </div>
+                            <div className="center">
+                                <h3 className="logmtextcenter">
+                                    {" "}
+                                    Criminal Search System
+                                </h3>
+                            </div>
                         </div>
-                        <div className="ecenter">
-                            <h3 className="logmtextcenter">
-                                {" "}
-                                Criminal Search System
-                            </h3>
-                        </div>
+
+
                         <form>
                             <div className="form-horizontal">
                                 <div className="form-group m-t-25">

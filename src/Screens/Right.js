@@ -232,10 +232,10 @@ export default class Right extends Component {
                                         <div class="circle">
                                         </div></div></div>
                             </div><p>Please wait...</p></div></div>
-                    <div class="overlay"></div>
+                    {/* <div class="overlay"></div> */}
                 </div>}
 
-                <div class="menu" style={{ overflowY: 'auto' }}>
+                <div class="menu" style={{ overflowY: 'scroll' }}>
                     <ul class="list">
                         <li className={this.check('user')}>
                             <a href="/user">
