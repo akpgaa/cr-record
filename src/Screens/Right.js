@@ -129,30 +129,32 @@ export default class Right extends Component {
                                                                                         <div style={{ paddingLeft: 15 }} id={`collapse${i}${j}${k}${l}${m}`} class="collapse" aria-labelledby={`head${i}${j}${k}${l}${m}`} data-parent="#accordionExample">
                                                                                             {/* Station  */}
                                                                                             {Data[key][key1][key2][key3][key4] && Object.keys(Data[key][key1][key2][key3][key4]).map((key5, n) => {
-                                                                                                let id = Data[key][key1][key2][key3][key4][key5].cr_identifier;
-                                                                                                // Encrypt
-                                                                                                var ciphertext = CryptoJS.AES.encrypt(`${id}`, 'secret key 123').toString();
+                                                                                                if (Data[key][key1][key2][key3][key4][key5].cr_identifier) {
+                                                                                                    let id = Data[key][key1][key2][key3][key4][key5].cr_identifier;
+                                                                                                    // Encrypt
+                                                                                                    var ciphertext = CryptoJS.AES.encrypt(`${id}`, 'secret key 123').toString();
 
 
-                                                                                                return (
-                                                                                                    <div class="card-body">
-                                                                                                        <div class="card-header" id={`head${i}${j}${k}${l}${m}${n}`}>
-                                                                                                            <h2 class="mb-0">
-                                                                                                                <li class="">
-                                                                                                                    <Link
-                                                                                                                        to={`/Main/data?data=${ciphertext}`}
-                                                                                                                        // onClick={() => this.handleClick(id)}
-                                                                                                                        class=" waves-effect waves-block"
-                                                                                                                    >
-                                                                                                                        <i class="material-icons">person</i>
-                                                                                                                        <span style={{ color: this.props.originalText == id ? '#F44336' : '#1e1e1e' }}>{Data[key][key1][key2][key3][key4][key5].Personal_Details_Name_First}</span>
-                                                                                                                    </Link>
+                                                                                                    return (
+                                                                                                        <div class="card-body">
+                                                                                                            <div class="card-header" id={`head${i}${j}${k}${l}${m}${n}`}>
+                                                                                                                <h2 class="mb-0">
+                                                                                                                    <li class="">
+                                                                                                                        <Link
+                                                                                                                            to={`/Main/data?data=${ciphertext}`}
+                                                                                                                            // onClick={() => this.handleClick(id)}
+                                                                                                                            class=" waves-effect waves-block"
+                                                                                                                        >
+                                                                                                                            <i class="material-icons">person</i>
+                                                                                                                            <span style={{ color: this.props.originalText == id ? '#F44336' : '#1e1e1e' }}>{Data[key][key1][key2][key3][key4][key5].Personal_Details_Name_First}</span>
+                                                                                                                        </Link>
 
-                                                                                                                </li>
-                                                                                                            </h2>
+                                                                                                                    </li>
+                                                                                                                </h2>
+                                                                                                            </div>
                                                                                                         </div>
-                                                                                                    </div>
-                                                                                                )
+                                                                                                    )
+                                                                                                }
                                                                                             })
                                                                                             }
                                                                                         </div>
