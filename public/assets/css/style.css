@@ -8429,3 +8429,8 @@ a:hover, a:focus {
   padding-left: 15px;
   padding-top:7px
 }
+#seconddiv {
+ max-height: 0%;
+ transition: 0.5s;
+ overflow: hidden;
+}

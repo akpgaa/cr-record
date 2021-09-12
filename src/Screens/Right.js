@@ -11,10 +11,10 @@ export default class Right extends Component {
         show: false,
     }
     componentDidMount = async () => {
-        let result = await Bridge.GetData()
+        let { data: result } = await Bridge.GetData()
         if (result) {
             console.log(result.data);
-            this.setState({ Data: result.data, show: true })
+            this.setState({ Data: result.data, collapse: result.collapse, show: true })
         } else {
             this.setState({ show: true })
         }
@@ -54,171 +54,142 @@ export default class Right extends Component {
         let first = window.location.href.split('/')[3];
         return first === val ? 'active' : '';
     }
+    handlecollapse = (choice, key, key1, key2, key3, key4, key5) => {
+        let { Data, show, collapse } = this.state;
+        if (choice == 1) {
+            collapse[key].collapse = !collapse[key].collapse
+        } else if (choice == 2) {
+            collapse[key][key1].collapse = !collapse[key][key1].collapse
+        } else if (choice == 3) {
+            collapse[key][key1][key2].collapse = !collapse[key][key1][key2].collapse
+        } else if (choice == 4) {
+            collapse[key][key1][key2][key3].collapse = !collapse[key][key1][key2][key3].collapse
+        } else if (choice == 5) {
+            collapse[key][key1][key2][key3][key4].collapse = !collapse[key][key1][key2][key3][key4].collapse
+        }
+        this.setState({ collapse })
+    }
     render() {
-        let { Data, show } = this.state;
+        let { Data, show, collapse } = this.state;
         console.log(this.props.data);
         let RightPanel = []
         let RightPanel1 = []
         if (Data) {
-            RightPanel = Object.keys(Data).map((key, i) => {
+
+            RightPanel1 = Object.keys(Data).map((key, i) => {
                 return (
-                    <li className={this.check('main')} style={{ paddingLeft: 15, marginTop: -20 }}>
-                        {/* City  */}
-                        <div class="card-header" id={`heasd${i}`}>
-                            <h2 class="mb-0">
-                                <i class="material-icons">location_city</i>
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target={`#collapses${i}`} aria-expanded="true" aria-controls={`#collapses${i}`} >
-                                    <span>{key}</span>
-                                </button>
-                                {/* <i style={{ justifyContent: 'flex-end' }} class="material-icons">add
-                                        </i> */}
-                            </h2>
-                        </div>
-                        <div id={`collapses${i}`} class="collapse" aria-labelledby={`heasd${i}`} data-parent="#accordionExample">
-                            {/* Zone  */}
-                            {Data[key] && Object.keys(Data[key]).map((key1, j) => {
-                                return (
-                                    <div class="card-body">
-                                        <div class="card-header" id={`head${i}${j}`}>
-                                            <h2 class="mb-0">
-                                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target={`#collapse${i}${j}`} aria-expanded="true" aria-controls={`#collapse${i}${j}`} >
-                                                    <i class="material-icons">map</i>
-                                                    {' '}      <span>{key1}</span>
-                                                </button>
-                                            </h2>
-                                        </div>
-                                        <div style={{ paddingLeft: 15 }} id={`collapse${i}${j}`} class="collapse" aria-labelledby={`head${i}${j}`} data-parent="#accordionExample">
-                                            {/* Range  */}
-                                            {Data[key][key1] && Object.keys(Data[key][key1]).map((key2, k) => {
-                                                return (
-                                                    <div class="card-body">
-                                                        <div class="card-header" id={`head${i}${j}${k}`}>
-                                                            <h2 class="mb-0">
-                                                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target={`#collapse${i}${j}${k}`} aria-expanded="true" aria-controls={`#collapse${i}${j}${k}`} >
+                    <li >
+                        <a href="javascript:void(0);" class="menu-toggle" onClick={() => this.handlecollapse(1, key)} >
+                            <i class="material-icons">location_city</i>
+                            <span>{key}</span>
+                        </a>
+
+                        {collapse[key].collapse &&
+                            <div id="seconddiv" style={{ paddingLeft: 15 }} >
+                                {/* Zone  */}
+                                {Data[key] && Object.keys(Data[key]).map((key1, j) => {
+                                    return (
+                                        <li >
+                                            <a href="javascript:void(0);" class="menu-toggle" onClick={() => this.handlecollapse(2, key, key1)} >
+                                                <i class="material-icons">map</i>
+                                                <span>{key1}</span>
+                                            </a>
+                                            {collapse[key][key1].collapse &&
+                                                <div style={{ paddingLeft: 15 }} >
+                                                    {/* Zone  */}
+                                                    {Data[key][key1] && Object.keys(Data[key][key1]).map((key2, k) => {
+                                                        return (
+                                                            <li >
+                                                                <a href="javascript:void(0);" class="menu-toggle" onClick={() => this.handlecollapse(3, key, key1, key2)} >
                                                                     <i class="material-icons">navigation</i>
-                                                                    {' '}      <span>{key2}</span>
-                                                                </button>
-                                                            </h2>
-                                                        </div>
-                                                        <div style={{ paddingLeft: 15 }} id={`collapse${i}${j}${k}`} class="collapse" aria-labelledby={`head${i}${j}${k}`} data-parent="#accordionExample">
-                                                            {/* District  */}
-                                                            {Data[key][key1][key2] && Object.keys(Data[key][key1][key2]).map((key3, l) => {
-                                                                return (
-                                                                    <div class="card-body">
-                                                                        <div class="card-header" id={`head${i}${j}${k}${l}`}>
-                                                                            <h2 class="mb-0">
-                                                                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target={`#collapse${i}${j}${k}${l}`} aria-expanded="true" aria-controls={`#collapse${i}${j}${k}${l}`} >
-                                                                                    <i class="material-icons">pin_drop</i>
-                                                                                    {' '}      <span>{key3}</span>
-                                                                                </button>
-                                                                            </h2>
-                                                                        </div>
-                                                                        <div style={{ paddingLeft: 15 }} id={`collapse${i}${j}${k}${l}`} class="collapse" aria-labelledby={`head${i}${j}${k}${l}`} data-parent="#accordionExample">
-                                                                            {/* Station  */}
-                                                                            {Data[key][key1][key2][key3] && Object.keys(Data[key][key1][key2][key3]).map((key4, m) => {
-                                                                                return (
-                                                                                    <div class="card-body">
-                                                                                        <div class="card-header" id={`head${i}${j}${k}${l}${m}`}>
-                                                                                            <h2 class="mb-0">
-                                                                                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target={`#collapse${i}${j}${k}${l}${m}`} aria-expanded="true" aria-controls={`#collapse${i}${j}${k}${l}${m}`} >
-                                                                                                    <i class="material-icons">my_location</i>
-                                                                                                    {' '}      <span>{key4}</span>
-                                                                                                </button>
-                                                                                            </h2>
-                                                                                        </div>
-                                                                                        <div style={{ paddingLeft: 15 }} id={`collapse${i}${j}${k}${l}${m}`} class="collapse" aria-labelledby={`head${i}${j}${k}${l}${m}`} data-parent="#accordionExample">
-                                                                                            {/* Station  */}
-                                                                                            {Data[key][key1][key2][key3][key4] && Object.keys(Data[key][key1][key2][key3][key4]).map((key5, n) => {
-                                                                                                if (Data[key][key1][key2][key3][key4][key5].cr_identifier) {
-                                                                                                    let id = Data[key][key1][key2][key3][key4][key5].cr_identifier;
-                                                                                                    // Encrypt
-                                                                                                    var ciphertext = CryptoJS.AES.encrypt(`${id}`, 'secret key 123').toString();
+                                                                    <span>{key2}</span>
+                                                                </a>
+                                                                {collapse[key][key1][key2].collapse &&
+                                                                    <div style={{ paddingLeft: 15 }} >
+                                                                        {/* Zone  */}
+                                                                        {Data[key][key1][key2] && Object.keys(Data[key][key1][key2]).map((key3, l) => {
+                                                                            return (
+                                                                                <li >
+                                                                                    <a href="javascript:void(0);" class="menu-toggle" onClick={() => this.handlecollapse(4, key, key1, key2, key3)} >
+                                                                                        <i class="material-icons">pin_drop</i>
+                                                                                        <span>{key3}</span>
+                                                                                    </a>
+                                                                                    {collapse[key][key1][key2][key3].collapse &&
+                                                                                        <div style={{ paddingLeft: 15 }} >
+                                                                                            {/* Zone  */}
+                                                                                            {Data[key][key1][key2][key3] && Object.keys(Data[key][key1][key2][key3]).map((key4, m) => {
 
+                                                                                                return (
+                                                                                                    <li >
+                                                                                                        <a href="javascript:void(0);" class="menu-toggle" onClick={() => this.handlecollapse(5, key, key1, key2, key3, key4)} >
+                                                                                                            <i class="material-icons">my_location</i>
+                                                                                                            <span>{key4}</span>
+                                                                                                        </a>
+                                                                                                        {collapse[key][key1][key2][key3][key4].collapse &&
+                                                                                                            <div style={{ paddingLeft: 15 }} >
+                                                                                                                {/* Zone  */}
+                                                                                                                {Data[key][key1][key2][key3][key4] && Object.keys(Data[key][key1][key2][key3][key4]).map((key5, n) => {
+                                                                                                                    let id = Data[key][key1][key2][key3][key4][key5].cr_identifier;
+                                                                                                                    // Encrypt
+                                                                                                                    var ciphertext = CryptoJS.AES.encrypt(`${id}`, 'secret key 123').toString();
+                                                                                                                    return (
+                                                                                                                        <div class="card-body">
+                                                                                                                            <div class="card-header" id={`head${i}${j}${k}${l}${m}${n}`}>
+                                                                                                                                <h2 class="mb-0">
+                                                                                                                                    {(Data[key][key1][key2][key3][key4][key5].cr_identifier) ?
+                                                                                                                                        <li >
+                                                                                                                                            <Link
+                                                                                                                                                to={`/Main/data?data=${ciphertext}`}
+                                                                                                                                                // onClick={() => this.handlecollapse(5, key, key1, key2, key3, key4)}
+                                                                                                                                                class=" waves-effect waves-block"
+                                                                                                                                            >
+                                                                                                                                                <i class="material-icons">person</i>
+                                                                                                                                                <span style={{ color: this.props.originalText == id ? '#F44336' : '#1e1e1e' }}>{Data[key][key1][key2][key3][key4][key5].Personal_Details_Name_First}</span>
+                                                                                                                                            </Link>
 
-                                                                                                    return (
-                                                                                                        <div class="card-body">
-                                                                                                            <div class="card-header" id={`head${i}${j}${k}${l}${m}${n}`}>
-                                                                                                                <h2 class="mb-0">
-                                                                                                                    <li class="">
-                                                                                                                        <Link
-                                                                                                                            to={`/Main/data?data=${ciphertext}`}
-                                                                                                                            // onClick={() => this.handleClick(id)}
-                                                                                                                            class=" waves-effect waves-block"
-                                                                                                                        >
-                                                                                                                            <i class="material-icons">person</i>
-                                                                                                                            <span style={{ color: this.props.originalText == id ? '#F44336' : '#1e1e1e' }}>{Data[key][key1][key2][key3][key4][key5].Personal_Details_Name_First}</span>
-                                                                                                                        </Link>
+                                                                                                                                        </li>
+                                                                                                                                        : <a href="#"  >
+                                                                                                                                            <i class="material-icons">person</i>
+                                                                                                                                            <span>No data found </span>
+                                                                                                                                        </a>
+                                                                                                                                    }
+                                                                                                                                </h2>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    )
 
-                                                                                                                    </li>
-                                                                                                                </h2>
+                                                                                                                })
+                                                                                                                }
                                                                                                             </div>
-                                                                                                        </div>
-                                                                                                    )
-                                                                                                }
+                                                                                                        }
+                                                                                                    </li>
+                                                                                                )
                                                                                             })
                                                                                             }
                                                                                         </div>
-                                                                                    </div>
-                                                                                )
-                                                                            })
-                                                                            }
-                                                                        </div>
+                                                                                    }
+                                                                                </li>
+                                                                            )
+                                                                        })
+                                                                        }
                                                                     </div>
-                                                                )
-                                                            })
-                                                            }
-                                                        </div>
-                                                    </div>
-                                                )
-                                            })
+                                                                }
+                                                            </li>
+                                                        )
+                                                    })
+                                                    }
+                                                </div>
                                             }
-                                        </div>
-                                    </div>
-                                )
-                            })
-                            }
-                        </div>
-                    </li>
+                                        </li>
+                                    )
+                                })
+                                }
+                            </div>
+                        }
+                    </li >
 
                 )
             })
-
-
-            // RightPanel1 = Object.keys(Data).map((key, i) => {
-            //     return (
-            //         <li className={this.check('category') || this.check('session') || this.check('course')}>
-            //             <a href="javascript:void(0);" class="menu-toggle">
-            //                 <i class="material-icons">location_city</i>
-            //                 <span>{key}</span>
-            //             </a>
-            //             <ul class="ml-menu">
-            //                 {/* Zone  */}
-            //                 {Data[key] && Object.keys(Data[key]).map((key1, j) => {
-            //                     return (
-            //                         <li className={this.check('category') || this.check('session') || this.check('course')}>
-            //                             <a href="javascript:void(0);" class="menu-toggle">
-            //                                 <i class="material-icons">map</i>
-            //                                 <span>{key1}</span>
-            //                             </a>
-            //                             <ul class="ml-menu">
-            //                                 <li className={this.check('category')}>
-            //                                     <a href="/category">Add Category</a>
-            //                                 </li>
-            //                                 <li className={this.check('session')}>
-            //                                     <a href="/session">Add Session</a>
-            //                                 </li>
-            //                                 <li className={this.check('course')}>
-            //                                     <a href="/course">Add Course</a>
-            //                                 </li>
-            //                             </ul>
-            //                         </li>)
-            //                 })
-            //                 }
-            //             </ul>
-            //         </li>
-
-            //     )
-            // })
 
         }
         return (
@@ -252,7 +223,7 @@ export default class Right extends Component {
                             </a>
                         </li>
 
-                        {RightPanel}
+                        {RightPanel1}
                     </ul>
                 </div >
 

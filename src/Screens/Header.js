@@ -54,12 +54,22 @@ function content(userDetails, originalText) {
                                 CRIMINAL SEARCH SYSTEM
                             </a>
                         </div>
-                    </div>
-                </nav>
+                        <div class="btn-group user-helper-dropdown" style={{ float: 'right', borderRadius: "70%", marginTop: 10 }}>
+                            <img src="/static/media/user.png" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" width="50" height="50" alt="User" />
+                            <ul class="dropdown-menu pull-right">
 
+
+                                <li>
+                                    <a href="#" class=" waves-effect waves-block">
+                                        <i class="material-icons">input</i>Log Out</a>
+                                </li>
+                                </ul></div>
+                    </div>
+
+                </nav>
                 <section>
                     <aside id="leftsidebar" className="sidebar">
-                        <div className="user-info">
+                        {/* <div className="user-info">
                             <div className="image">
                                 <img
                                     // src="http://mdc.murugappa.com/elearning2/web/assets/images/user.png" 
@@ -68,20 +78,16 @@ function content(userDetails, originalText) {
                             </div>
                             <div className="info-container">
                                 <div className="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    {/* {userDetails.firstname} */}
+                                    
                                     Name
                                 </div>
-                                {/* <div className="email">Email</div> */}
+                             
                                 <div className="btn-group user-helper-dropdown">
                                     <i className="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                         keyboard_arrow_down
                                     </i>
                                     <ul className="dropdown-menu pull-right">
-                                        {/* <li>
-                                        <a href="/profile">
-                                            <i className="material-icons">person</i>Profile
-                                        </a>
-                                    </li> */}
+                                        
                                         <li role="separator" className="divider"></li>
                                         <li>
                                             <a href="#" onClick={() => LogOut()}>
@@ -91,16 +97,17 @@ function content(userDetails, originalText) {
                                     </ul>
                                 </div>
                             </div>
-                        </div>
-                        <div class="menu">
+                        </div> */}
+
+                        <div class="menu" style={{ paddingBottom: 20 }}>
                             <Right originalText={originalText} />
                         </div>
                     </aside>
                 </section>
 
-            </div>
+            </div >
             <LoadScript />
-        </React.Fragment>
+        </React.Fragment >
     );
 }
 
