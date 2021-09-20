@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import imag from "../Assets/user.png";
 import LoadScript from '../Routes/LoadScript';
 import Right from './Right';
-
+var CSS = require('./header.css')
 var CryptoJS = require("crypto-js");
 const Header = (props) => {
     // let userDetails = JSON.parse(localStorage.getItem('userDetails'));
@@ -54,16 +54,12 @@ function content(userDetails, originalText) {
                                 CRIMINAL SEARCH SYSTEM
                             </a>
                         </div>
-                        <div class="btn-group user-helper-dropdown" style={{ float: 'right', borderRadius: "70%", marginTop: 10 }}>
-                            <img src="/static/media/user.png" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" width="50" height="50" alt="User" />
-                            <ul class="dropdown-menu pull-right">
-
-
-                                <li>
-                                    <a href="#" class=" waves-effect waves-block">
-                                        <i class="material-icons">input</i>Log Out</a>
-                                </li>
-                                </ul></div>
+                        {/* <div className='userhidecontent'> */}
+                        <div class="userhidecontent" style={{ float: 'right', borderRadius: "70%", marginTop: 10 }}>
+                            <a href="#" class=" waves-effect waves-block" onClick={LogOut}>
+                                <i class="material-icons">input</i>Log Out
+                            </a>
+                        </div>
                     </div>
 
                 </nav>
@@ -100,7 +96,7 @@ function content(userDetails, originalText) {
                         </div> */}
 
                         <div class="menu" style={{ paddingBottom: 20 }}>
-                            <Right originalText={originalText} />
+                            <Right originalText={originalText} Logout={LogOut} />
                         </div>
                     </aside>
                 </section>

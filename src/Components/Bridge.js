@@ -24,23 +24,28 @@ const getsingledata = async (table, id) => {
     // console.log(result);
     return result
 }
-const Search = async (keyword) => {
-    let body = {}
-    body.keyword = keyword
+const Search = async (body) => {
+    // let body = {}
+    // body.keyword = keyword
     const result = await http.post(ACCESS_POINT + `/cr/search`, body)
-    // const result = await http.get(ACCESS_POINT + `/web/UpdatewithFileUpload/${table}/${id}`, data, {
-    //     headers: {
-    //         "Content-Type": "multipart/form-data",
-    //     },
-    // })
-    // console.log(result);
+  
     return result
 }
+
+
+const Read = async (query) => {
+    let body = {}
+    body.query = query
+    const result = await http.post(ACCESS_POINT + `/cr/Read`, body)
+    return result
+}
+
 
 
 
 export default {
     GetData,
     getsingledata,
-    Search
+    Search,
+    Read
 }

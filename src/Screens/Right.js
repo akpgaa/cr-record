@@ -71,7 +71,7 @@ export default class Right extends Component {
     }
     render() {
         let { Data, show, collapse } = this.state;
-        console.log(this.props.data);
+        console.log(Data);
         let RightPanel = []
         let RightPanel1 = []
         if (Data) {
@@ -98,6 +98,7 @@ export default class Right extends Component {
                                                 <div style={{ paddingLeft: 15 }} >
                                                     {/* Zone  */}
                                                     {Data[key][key1] && Object.keys(Data[key][key1]).map((key2, k) => {
+
                                                         return (
                                                             <li >
                                                                 <a href="javascript:void(0);" class="menu-toggle" onClick={() => this.handlecollapse(3, key, key1, key2)} >
@@ -208,7 +209,7 @@ export default class Right extends Component {
                     {/* <div class="overlay"></div> */}
                 </div>}
 
-                <div class="menu" style={{ overflowY: 'scroll' }}>
+                <div class="menu" style={{}}>
                     <ul class="list">
                         <li className={this.check('user')}>
                             <a href="/user">
@@ -220,6 +221,12 @@ export default class Right extends Component {
                             <a href="/search">
                                 <i className="material-icons">search</i>
                                 <span>Search</span>
+                            </a>
+                        </li>
+                        <li className='mobile-menu'>
+                            <a href="#" onClick={this.props.Logout}>
+                                <i className="material-icons">input</i>
+                                <span>LogOut</span>
                             </a>
                         </li>
 

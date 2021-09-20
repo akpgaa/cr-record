@@ -5,23 +5,49 @@ import LoadScript from '../Routes/LoadScript';
 
 import Select from 'react-select';
 import { Input, Button } from "reactstrap";
+import ListingMore from './Pagination';
 var CryptoJS = require("crypto-js");
 
 export default class Search extends Component {
 
     state = {
-        result: null,
+        result: [],
         query: '',
         Show: false,
         options: [
-            { label: 'Criminal Record', value: 0 }
+            { label: 'Fields', value: 1 },
+            { label: 'Image', value: 2 },
+            { label: 'FingerPrint', value: 3 },
         ],
-        selectedOption: null
+        TypeOptions: [
+            { label: 'Fire Arms', value: 1, table: 'fire_arms' },
+            { label: 'Organizations Details', value: 2, table: 'organization_details' },
+            { label: 'Personal Details', value: 3, table: 'personal_details' },
+            { label: 'Physical Features', value: 4, table: 'physical_features' },
+            { label: 'Possession', value: 5, table: 'possession' },
+            { label: 'Other', value: 6, table: 'others' },
+        ],
+        FieldOptions: [],
+        selectedfield: null,
+        selectedfield1: [],
+        selectedOption: null,
+        selectedtype: null
     }
     handleSubmit = async () => {
+        let { query, result, selectedOption, options, TypeOptions, selectedtype, selectedfield1, FieldOptions } = this.state;
+
         try {
-            this.setState({ Show: true })
-            let { data: result } = await Bridge.Search(this.state.query);
+            // this.setState({ Show: true })
+            if (query.toString().length == 0) {
+
+                return true
+            }
+            let body = {}
+            body.keyword = this.state.query;
+            body.query = selectedfield1.join(` LIKE '${query}' OR `) + ` LIKE '${query}'`
+            console.log(selectedfield1, selectedfield1.join(` LIKE ${query} and `));
+            // return true
+            let { data: result } = await Bridge.Search(body);
             console.log(result);
             if (result) {
                 this.setState({
@@ -40,12 +66,37 @@ export default class Search extends Component {
             this.handleSubmit();
         }
     };
-    handleChange = selectedOption => {
-        this.setState({ selectedOption });
-        console.log(`Option selected:`, selectedOption);
+    handleChange = async (x, selectedOption) => {
+        await this.setState({ [x]: selectedOption });
+        console.log(selectedOption);
+        // to get the field options 
+        if (x == 'selectedtype') {
+            let Query = `SELECT COLUMN_NAME as label,COLUMN_NAME as field FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='crrecords' AND TABLE_NAME = '${selectedOption.table}' AND COLUMN_NAME <> 'CR_IDENTIFIER';`
+            let { data: result } = await Bridge.Read(Query)
+            // console.log(result);
+            if (result) {
+                this.setState({
+                    FieldOptions: result,
+                    selectedfield: null
+                })
+            }
+        } else if (x == 'selectedfield') {
+            let selectedfield1 = []
+            let wait = await selectedOption.map((ival) => {
+                selectedfield1.push(ival.field)
+            })
+            await Promise.all(wait)
+
+            // console.log(selectedOption1.join(","));
+            await this.setState({ selectedfield1 })
+        } else if (x == 'selectedOption') {
+            this.setState({
+                selectedtype: null, selectedfield: null
+            })
+        }
     };
     render() {
-        let { query, result, selectedOption, options } = this.state;
+        let { query, result, selectedOption, options, TypeOptions, selectedtype, selectedfield, FieldOptions } = this.state;
         return (
             <section className="content">
                 <div className="container-fluid">
@@ -58,6 +109,71 @@ export default class Search extends Component {
                         <div className="card">
                             <div className="body">
                                 < div className="form-horizontal" >
+
+
+
+                                    {/* Type  */}
+
+                                    <div className="row clearfix">
+                                        <div className="col-sm-4  form-control-label">
+                                            <label>Search By</label>
+                                        </div>
+
+                                        <div className="col-sm-6">
+                                            <div className="form-group">
+                                                <Select
+                                                    // isMulti={true}
+                                                    value={selectedOption}
+                                                    onChange={(e) => this.handleChange('selectedOption', e)}
+                                                    options={options}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="col-md-10" />
+                                    </div>
+
+                                    {/* Type  */}
+
+                                    {selectedOption && selectedOption.value == 1 &&
+                                        <div>
+                                            <div className="row clearfix">
+                                                <div className="col-sm-4  form-control-label">
+                                                    <label>Type</label>
+                                                </div>
+
+                                                <div className="col-sm-6">
+                                                    <div className="form-group">
+                                                        <Select
+                                                            // isMulti={true}
+                                                            value={selectedtype}
+                                                            onChange={(e) => this.handleChange('selectedtype', e)}
+                                                            options={TypeOptions}
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="col-md-10" />
+                                            </div>
+                                            <div className="row clearfix">
+                                                <div className="col-sm-4  form-control-label">
+                                                    <label>Field Name</label>
+                                                </div>
+
+                                                <div className="col-sm-6">
+                                                    <div className="form-group">
+                                                        <Select
+                                                            isMulti={true}
+                                                            value={selectedfield}
+                                                            onChange={(e) => this.handleChange('selectedfield', e)}
+                                                            options={FieldOptions}
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="col-md-10" />
+                                            </div>
+
+                                        </div>
+
+                                    }
 
                                     {/* query  */}
 
@@ -78,7 +194,7 @@ export default class Search extends Component {
                                                         this.setState({ query: e.target.value })
                                                     }}
                                                     value={query}
-                                                // onKeyDown={this._handleKeyDown}
+                                                    onKeyDown={this._handleKeyDown}
                                                 />
 
                                                 {/* </div> */}
@@ -86,26 +202,7 @@ export default class Search extends Component {
                                         </div>
                                         <div className="col-md-10" />
                                     </div>
-
-                                    {/* Type  */}
-
-                                    <div className="row clearfix">
-                                        <div className="col-sm-4  form-control-label">
-                                            <label>Type</label>
-                                        </div>
-
-                                        <div className="col-sm-6">
-                                            <div className="form-group">
-                                                <Select
-                                                    value={selectedOption}
-                                                    onChange={this.handleChange}
-                                                    options={options}
-                                                />
-                                            </div>
-                                        </div>
-                                        <div className="col-md-10" />
-                                    </div>
-                                    <br /> <br />
+                                    <br />
 
 
                                     <div className="row clearfix">
@@ -144,30 +241,8 @@ export default class Search extends Component {
                                         <div className="col-md-10" />
                                     </div>
 
+                                    <ListingMore result={result} arraylength={result.length} />
 
-                                    {result &&
-                                        <div class="list-group">
-                                            {result.map((ival) => {
-                                                var ciphertext = CryptoJS.AES.encrypt(`${ival.cr_identifier}`, 'secret key 123').toString();
-                                                return (
-
-                                                    <a href={`/Main/data?data=${ciphertext}`} class="list-group-item list-group-item-action" target='_blank'>
-                                                        {/* <Link
-                                                            to={`/Main/data?data=${ciphertext}`}
-                                                            // onClick={() => this.handlecollapse(5, key, key1, key2, key3, key4)}
-                                                            class=" waves-effect waves-block"
-                                                        > */}
-                                                        <i class="material-icons">person</i>
-                                                        &nbsp;  &nbsp; &nbsp;
-                                                        <span style={{ color: '#1e1e1e' }}>{ival.Personal_Details_Name_First}</span>
-                                                        {/* </Link> */}
-
-
-                                                    </a>
-                                                )
-                                            })}
-                                        </div>
-                                    }
 
 
                                 </div >

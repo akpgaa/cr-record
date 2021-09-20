@@ -1,174 +1,31 @@
-/*Desktop View*/
-.header {
-    /* display: flex; */
-    width: 100%;
-    position: fixed;
-    box-shadow:0px 0 10px  #4e504e;
-    /* background: linear-gradient(#6616fc, #f394d3); */
-    justify-content:space-between;
-    align-items: center;
-    font-family: "Poppins", sans-serif;
- 
-    padding: 10px 10px;
-    /* padding: 15px 0; */
-    height: 50px;
-    background: #fff;
-    z-index: 997;  
-    top:0;
-    transition: all 0.5s;
-  }
-  .logo-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-  .logo-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .logo {
-    width: 45px;
-    height: 45px;
-  }
-  .nav-options1 {
-    padding-left:50px;
-    padding-top: 60px;
-    display: grid;
-    grid-template-columns: repeat(6, auto);
-    grid-gap: 35px;
-    list-style-type: none;
-  }
-  .mobile-option {
-    display: none;
-  }
-  .option  {
-   
-    
-  }
-  
-  .option :hover {
-    color: rgb(255, 125, 4);
-  }
-  .signin-up {
-    display: flex;
-    padding: 0px 5px;
-    list-style-type: none;
-    
-  }
-  .sign-in {
-    padding-right: 50px;
-    align-self: center;
-  }
-  .sign-in :hover {
-    color: #86db9f;
-  }
-  .signup-btn {
-    padding: 3px 8px;
-    height: 2.4rem;
-    border-radius: 35px;
-    background: rgb(255, 125, 4);
-    color: white;
-    cursor: pointer;
-    align-items: center;
-  }
-   .logout{
-color:cadetblue;
-  }
 
-  .newdropdown{
-    opacity: 0;
-    visibility: hidden;
-    backface-visibility: hidden;
-    transform: rotate3d(1,0,0,-90deg);
-    transform-origin: 0% 0%;
-    transition: all 0.35s;
-  }
-  .newdropdown.open{
-    visibility: visible;
-    opacity: 1;
-    transform: rotate3d(0,0,0,0);
-  }
-  .second-logo {
+  .userhidecontent{
     display: block;
-   
-  }
-  .usernamehide{
-    display: none;
   }
   .mobile-menu {
     display: none;
   }
+ .course-item {
+    border-radius: 5px;
+    border: 1px solid #eef0ef;
+}
+.course-content {
+  padding: 15px;
+}
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+  a{
+    color: rgb(255, 255, 255);
+  }
   @media (max-width: 768px) {
     /*Mobile View */
-    .header {
-      padding: 0px 10px;
-    }
-    .logo {
-      width: 45px;
-      height: 45px;
-    }
-    .nav-options1 {
-      display: flex;
-      width: 100%;
-      height: 74%;
-      position: absolute;
-      top: 150px;
-      left: -100%;
-      opacity: 0;
-      transition: all 0.5s ease;
-      flex-direction: column;
-      list-style-type: none;
-      grid-gap: 0px;
-    }
-    .nav-options1.active {
-      background:#cecece;
-      left: 0;
-      opacity: 1;
-      height: fit-content;
-      transition: all 0.5s ease;
-      z-index: 1;
-      align-content: center;
-      padding-left: 0px;
-    }
     
-  
-    .menu-icon {
-      width: 45px;
-      height: 45px;
-    }
-    .option {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 10vw;
-      padding: 30px 0px;
-    }
-    .sign-up {
-      background: rgb(255, 125, 4);
-      border-radius: 3px;
-      color: white;
-      padding: 20px 0px;
-      width: 80%;
-      align-self: center;
-      text-align: center;
-      border-radius: 3px;
-    }
-  
-    .signin-up {
-      display: none;
-    }
-    .second-logo {
-      display: none;
-    }
-
-  .usernamehide{
-    display: block;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
     .mobile-menu {
       display: block;
+    }
+    .userhidecontent{
+      display: none;
     }
   }
